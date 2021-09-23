@@ -1,4 +1,6 @@
-add file .env
+# Add file .env
+ Configuration File
+
 ```
   SERVER_PORT=9092
   DATABASE_HOST=localhost
