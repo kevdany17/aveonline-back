@@ -1,0 +1,233 @@
+{
+  "swagger": "2.0",
+  "paths": {
+    "/promotion": {
+      "get": {
+        "description": "return all promotion",
+        "tags": [
+          "promotion"
+        ],
+        "operationId": "promotionList",
+        "responses": {
+          "200": {
+            "description": "Promotion",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Promotion"
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/responses/serverError"
+          }
+        }
+      },
+      "post": {
+        "description": "create new promotion",
+        "tags": [
+          "promotion"
+        ],
+        "operationId": "promotionCreate",
+        "responses": {
+          "200": {
+            "description": "Promotion",
+            "schema": {
+              "$ref": "#/definitions/Promotion"
+            }
+          },
+          "500": {
+            "$ref": "#/responses/serverError"
+          }
+        }
+      }
+    },
+    "/v1/invoice": {
+      "get": {
+        "description": "return all invoices",
+        "tags": [
+          "invoice"
+        ],
+        "operationId": "getInvoices",
+        "responses": {
+          "200": {
+            "description": "Invoice",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Invoice"
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/invoice/": {
+      "post": {
+        "description": "create invoice",
+        "tags": [
+          "invoice"
+        ],
+        "operationId": "postInvoice",
+        "responses": {
+          "200": {
+            "description": "Invoice",
+            "schema": {
+              "$ref": "#/definitions/Invoice"
+            }
+          },
+          "500": {
+            "$ref": "#/responses/error"
+          }
+        }
+      }
+    },
+    "/v1/medicine": {
+      "get": {
+        "description": "return all medicines",
+        "tags": [
+          "medicine"
+        ],
+        "operationId": "getMedicines",
+        "responses": {
+          "200": {
+            "description": "Medicine",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Medicine"
+              }
+            }
+          },
+          "500": {
+            "$ref": "#/responses/error"
+          }
+        }
+      },
+      "post": {
+        "description": "create medicine",
+        "tags": [
+          "medicine"
+        ],
+        "operationId": "postMedicine",
+        "responses": {
+          "200": {
+            "description": "Medicine",
+            "schema": {
+              "$ref": "#/definitions/Medicine"
+            }
+          },
+          "500": {
+            "$ref": "#/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Invoice": {
+      "type": "object",
+      "properties": {
+        "Medicines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Medicine"
+          }
+        },
+        "creationDate": {
+          "type": "string",
+          "x-go-name": "CreationDate"
+        },
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ID"
+        },
+        "promotion": {
+          "$ref": "#/definitions/Promotion"
+        },
+        "promotionId": {
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "PromotionID"
+        },
+        "totalPay": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "TotalPay"
+        }
+      },
+      "x-go-package": "aveonline/internal/modules/invoice"
+    },
+    "Medicine": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ID"
+        },
+        "location": {
+          "type": "string",
+          "x-go-name": "Location"
+        },
+        "name": {
+          "type": "string",
+          "x-go-name": "Name"
+        },
+        "price": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Price"
+        }
+      },
+      "x-go-package": "aveonline/internal/modules/medicine"
+    },
+    "PaymentForDate": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "x-go-name": "Date"
+        },
+        "value": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Total"
+        }
+      },
+      "x-go-package": "aveonline/internal/modules/invoice"
+    },
+    "Promotion": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "x-go-name": "Description"
+        },
+        "finishDate": {
+          "type": "string",
+          "x-go-name": "FinishDate"
+        },
+        "id": {
+          "type": "integer",
+          "format": "uint64",
+          "x-go-name": "ID"
+        },
+        "percentaje": {
+          "type": "number",
+          "format": "double",
+          "x-go-name": "Percentage"
+        },
+        "startDate": {
+          "type": "string",
+          "x-go-name": "StartDate"
+        }
+      },
+      "x-go-package": "aveonline/internal/modules/promotion"
+    }
+  }
+}
