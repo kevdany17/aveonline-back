@@ -12,7 +12,7 @@
  Target Server Version : 90623
  File Encoding         : 65001
 
- Date: 23/09/2021 04:37:10
+ Date: 23/09/2021 05:31:31
 */
 
 
@@ -81,6 +81,10 @@ INSERT INTO "public"."invoice_medicines" VALUES (6, 9);
 INSERT INTO "public"."invoice_medicines" VALUES (6, 10);
 INSERT INTO "public"."invoice_medicines" VALUES (7, 9);
 INSERT INTO "public"."invoice_medicines" VALUES (7, 10);
+INSERT INTO "public"."invoice_medicines" VALUES (8, 1);
+INSERT INTO "public"."invoice_medicines" VALUES (8, 5);
+INSERT INTO "public"."invoice_medicines" VALUES (9, 1);
+INSERT INTO "public"."invoice_medicines" VALUES (9, 6);
 COMMIT;
 
 -- ----------------------------
@@ -107,6 +111,8 @@ INSERT INTO "public"."invoices" VALUES (6, '2021-09-23', 564.3, 11);
 INSERT INTO "public"."invoices" VALUES (5, '2021-09-23', 564.3, 11);
 INSERT INTO "public"."invoices" VALUES (4, '2021-09-22', 564.3, 11);
 INSERT INTO "public"."invoices" VALUES (1, '2021-09-21', 564.3, 11);
+INSERT INTO "public"."invoices" VALUES (8, '2021-09-23', 87.023, 7);
+INSERT INTO "public"."invoices" VALUES (9, '2021-09-23', 60.18, 9);
 COMMIT;
 
 -- ----------------------------
@@ -134,6 +140,7 @@ INSERT INTO "public"."medicines" VALUES (8, 'MD 05', 56.7, 'asdad');
 INSERT INTO "public"."medicines" VALUES (9, 'MD 06', 33, 'dddd');
 INSERT INTO "public"."medicines" VALUES (10, 'MD 06', 34, 'adasd');
 INSERT INTO "public"."medicines" VALUES (11, 'MD 08', 23, '123');
+INSERT INTO "public"."medicines" VALUES (12, 'Prueba Final', 34, 'México');
 COMMIT;
 
 -- ----------------------------
@@ -156,11 +163,12 @@ ALTER TABLE "public"."promotions" OWNER TO "postgres";
 -- Records of promotions
 -- ----------------------------
 BEGIN;
-INSERT INTO "public"."promotions" VALUES (7, 'prueba de promocion 01', 15, '2021-09-27', '2021-09-27', '2021-09-21 19:34:32.386994-05', '2021-09-21 19:34:32.386994-05');
 INSERT INTO "public"."promotions" VALUES (8, 'prueba de promocion 02', 10, '2021-09-26', '2021-09-26', '2021-09-21 19:40:08.907003-05', '2021-09-21 19:40:08.907003-05');
-INSERT INTO "public"."promotions" VALUES (9, 'prueba de promocion 03', 69, '2021-09-09', '2021-09-10', '2021-09-21 19:41:12.554086-05', '2021-09-21 19:41:12.554086-05');
 INSERT INTO "public"."promotions" VALUES (11, 'prueba de promocion 04', 5, '2021-09-22', '2021-09-22', '2021-09-22 03:29:37.32507-05', '2021-09-22 03:29:37.32507-05');
 INSERT INTO "public"."promotions" VALUES (12, 'prueba de promocion 05', 10, '2021-09-25', '2021-09-25', '2021-09-22 07:03:12.381584-05', '2021-09-22 07:03:12.381584-05');
+INSERT INTO "public"."promotions" VALUES (13, 'Prueba 06', 70, '2021-09-30', '2021-09-30', '2021-09-23 04:47:57.831887-05', '2021-09-23 04:47:57.831887-05');
+INSERT INTO "public"."promotions" VALUES (9, 'prueba de promocion 03', 69, '2021-09-23', '2021-09-23', '2021-09-21 19:41:12.554086-05', '2021-09-21 19:41:12.554086-05');
+INSERT INTO "public"."promotions" VALUES (7, 'prueba de promocion 01', 15, '2021-09-24', '2021-09-24', '2021-09-21 19:34:32.386994-05', '2021-09-21 19:34:32.386994-05');
 COMMIT;
 
 -- ----------------------------
@@ -168,21 +176,21 @@ COMMIT;
 -- ----------------------------
 ALTER SEQUENCE "public"."invoices_id_seq"
 OWNED BY "public"."invoices"."id";
-SELECT setval('"public"."invoices_id_seq"', 8, true);
+SELECT setval('"public"."invoices_id_seq"', 10, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."medicines_id_seq"
 OWNED BY "public"."medicines"."id";
-SELECT setval('"public"."medicines_id_seq"', 12, true);
+SELECT setval('"public"."medicines_id_seq"', 13, true);
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."promotions_id_seq"
 OWNED BY "public"."promotions"."id";
-SELECT setval('"public"."promotions_id_seq"', 13, true);
+SELECT setval('"public"."promotions_id_seq"', 14, true);
 
 -- ----------------------------
 -- Primary Key structure for table invoice_medicines
